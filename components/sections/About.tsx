@@ -19,6 +19,12 @@ const education = [
     school: "EPITA School of Engineering",
     year: "2023 – 2026",
     description: "Specializing in Software Engineering and Computer Science fundamentals."
+  },
+  {
+    degree: "High School Diploma",
+    school: "ACS Doha International School",
+    year: "2019 – 2022",
+    description: "Graduated with strong academic performance and involvement in technology related activities."
   }
 ];
 
