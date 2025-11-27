@@ -52,7 +52,7 @@ export function Experience() {
 
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline Line Background */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-white/10 md:-translate-x-1/2" />
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
           
           {/* Animated Timeline Line */}
           <motion.div 
@@ -73,31 +73,31 @@ export function Experience() {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-black rounded-full border-2 border-cyan-500 shadow-[0_0_10px_rgba(0,240,255,0.5)] -translate-x-[7px] md:-translate-x-1/2 mt-6 z-10">
+                <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-background rounded-full border-2 border-cyan-500 shadow-[0_0_10px_rgba(0,240,255,0.5)] -translate-x-[7px] md:-translate-x-1/2 mt-6 z-10">
                   <div className="w-full h-full bg-cyan-500 rounded-full animate-ping opacity-20" />
                 </div>
 
                 {/* Content */}
                 <div className="ml-8 md:ml-0 md:w-1/2">
-                  <Card className="p-0 overflow-hidden relative group hover:border-cyan-500/30 transition-colors">
+                  <Card className="p-0 overflow-hidden relative group hover:border-cyan-500/30 transition-colors bg-card border-border">
                     {/* Glass Header */}
-                    <div className="p-6 md:p-8 bg-white/5 border-b border-white/5">
+                    <div className="p-6 md:p-8 bg-muted/10 border-b border-border">
                       <div className="flex flex-wrap items-center justify-between gap-2">
-                        <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">{exp.role}</h3>
+                        <h3 className="text-xl font-bold text-foreground group-hover:text-cyan-400 transition-colors">{exp.role}</h3>
                         <span className="flex items-center text-xs font-medium text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
                           <Calendar className="w-3 h-3 mr-2" />
                           {exp.date}
                         </span>
                       </div>
                       
-                      <div className="flex items-center text-gray-400 text-sm mt-2">
+                      <div className="flex items-center text-muted text-sm mt-2">
                         <Briefcase className="w-4 h-4 mr-2" />
                         {exp.company}
                       </div>
                     </div>
 
                     <div className="p-6 md:p-8 pt-4">
-                      <ul className="space-y-3 text-gray-400">
+                      <ul className="space-y-3 text-muted">
                         {exp.description.map((item, i) => (
                           <li key={i} className="text-sm leading-relaxed flex items-start">
                             <span className="mr-2 mt-1.5 w-1.5 h-1.5 bg-cyan-500 rounded-full flex-shrink-0" />
@@ -108,7 +108,7 @@ export function Experience() {
 
                       <div className="flex flex-wrap gap-2 pt-6">
                         {exp.tech.map((t) => (
-                          <span key={t} className="text-xs font-medium text-gray-300 bg-white/5 px-2 py-1 rounded border border-white/5 hover:border-cyan-500/30 transition-colors">
+                          <span key={t} className="text-xs font-medium text-muted-foreground bg-muted/10 px-2 py-1 rounded border border-border hover:border-cyan-500/30 transition-colors">
                             {t}
                           </span>
                         ))}

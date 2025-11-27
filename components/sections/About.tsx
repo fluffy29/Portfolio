@@ -3,7 +3,7 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { Card } from "@/components/ui/Card";
-import { Code2, Rocket, Brain, Globe, ScanFace, Terminal, Cpu } from "lucide-react";
+import { Code2, Rocket, Brain, Globe, ScanFace, Terminal, Cpu, Fingerprint } from "lucide-react";
 import React from "react";
 
 const stats = [
@@ -11,6 +11,21 @@ const stats = [
   { label: "Modern Frameworks", value: "5+", icon: Code2, color: "text-purple-400" },
   { label: "Learning Hours", value: "1000+", icon: Brain, color: "text-pink-400" },
   { label: "Real-world APIs", value: "Hands-on", icon: Globe, color: "text-blue-400" },
+];
+
+const education = [
+  {
+    degree: "Bachelor of Science in Computer Science",
+    school: "University of Technology",
+    year: "2020 - 2024",
+    description: "Focused on Software Engineering, Algorithms, and Web Technologies."
+  },
+  {
+    degree: "Full Stack Web Development Bootcamp",
+    school: "Tech Academy",
+    year: "2023",
+    description: "Intensive training in React, Node.js, and Modern Web Architecture."
+  }
 ];
 
 function HolographicCard() {
@@ -44,7 +59,7 @@ function HolographicCard() {
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
-      className="relative w-full max-w-sm mx-auto aspect-[3/4] rounded-xl bg-black/40 border border-white/10 backdrop-blur-md overflow-hidden group perspective-1000 cursor-none"
+      className="relative w-full max-w-sm mx-auto aspect-[3/4] rounded-xl bg-card/40 border border-border backdrop-blur-md overflow-hidden group perspective-1000 cursor-none"
     >
       {/* Holographic Sheen */}
       <motion.div 
@@ -58,7 +73,7 @@ function HolographicCard() {
         <div className="flex justify-between items-start">
           <div className="flex flex-col">
             <span className="text-[10px] font-mono text-cyan-400 tracking-widest">IDENTITY_VERIFIED</span>
-            <span className="text-xs font-bold text-white/80">HASSAN MAJZOUB</span>
+            <span className="text-xs font-bold text-foreground/80">HASSAN MAJZOUB</span>
           </div>
           <ScanFace className="w-6 h-6 text-cyan-400 animate-pulse" />
         </div>
@@ -74,7 +89,7 @@ function HolographicCard() {
                  <div className="relative w-32 h-32">
                     <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-purple-600 rounded-full blur-md opacity-60 animate-pulse" />
                     <div className="absolute inset-2 bg-black rounded-full flex items-center justify-center border border-white/10">
-                        <span className="text-4xl">👨‍💻</span>
+                        <Fingerprint className="w-16 h-16 text-cyan-400/80" />
                     </div>
                  </div>
             </div>
@@ -90,14 +105,14 @@ function HolographicCard() {
         </div>
 
         {/* Footer Stats */}
-        <div className="space-y-2 font-mono text-[10px] text-cyan-300/80">
-          <div className="flex justify-between border-b border-white/10 pb-1">
+        <div className="space-y-2 font-mono text-[10px] text-muted">
+          <div className="flex justify-between border-b border-border pb-1">
             <span>ROLE</span>
-            <span className="text-white">FULL_STACK_DEV</span>
+            <span className="text-foreground">FULL_STACK_DEV</span>
           </div>
-          <div className="flex justify-between border-b border-white/10 pb-1">
+          <div className="flex justify-between border-b border-border pb-1">
             <span>LEVEL</span>
-            <span className="text-white">JUNIOR_ARCHITECT</span>
+            <span className="text-foreground">JUNIOR_ARCHITECT</span>
           </div>
           <div className="flex justify-between">
             <span>STATUS</span>
@@ -115,7 +130,7 @@ function HolographicCard() {
 
 export function About() {
   return (
-    <SectionWrapper id="about" className="bg-black/20">
+    <SectionWrapper id="about" className="bg-muted/5">
       <div className="grid lg:grid-cols-2 gap-16 items-center">
         {/* Left Content */}
         <motion.div
@@ -128,16 +143,16 @@ export function About() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
                 <Terminal className="w-6 h-6 text-cyan-400" />
-                <h2 className="text-3xl md:text-4xl font-bold">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
                 About <span className="text-cyan-400">Me</span>
                 </h2>
             </div>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full" />
           </div>
 
-          <div className="space-y-6 text-gray-400 leading-relaxed relative">
+          <div className="space-y-6 text-muted leading-relaxed relative">
             <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-500/50 to-transparent rounded-full" />
-            <p className="text-lg text-white font-medium pl-4">
+            <p className="text-lg text-foreground font-medium pl-4">
               I don't just write code; I engineer digital experiences. Merging the precision of backend logic with the fluidity of modern frontend design, I build applications that feel alive.
             </p>
             <p className="pl-4">
@@ -149,14 +164,35 @@ export function About() {
           </div>
 
           <div className="flex gap-4 pt-4">
-             <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2">
+             <div className="px-4 py-2 rounded-lg bg-card border border-border flex items-center gap-2">
                 <Cpu className="w-4 h-4 text-cyan-400" />
-                <span className="text-sm text-gray-300">System Architect</span>
+                <span className="text-sm text-muted">System Architect</span>
              </div>
-             <div className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2">
+             <div className="px-4 py-2 rounded-lg bg-card border border-border flex items-center gap-2">
                 <Globe className="w-4 h-4 text-purple-400" />
-                <span className="text-sm text-gray-300">Global Mindset</span>
+                <span className="text-sm text-muted">Global Mindset</span>
              </div>
+          </div>
+
+          {/* Education Section */}
+          <div className="pt-8 space-y-4">
+            <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
+              <Brain className="w-5 h-5 text-cyan-400" />
+              Education
+            </h3>
+            <div className="space-y-4">
+              {education.map((edu, index) => (
+                <div key={index} className="relative pl-6 border-l-2 border-border hover:border-cyan-500/50 transition-colors">
+                  <div className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-cyan-500" />
+                  <h4 className="text-foreground font-medium">{edu.degree}</h4>
+                  <div className="flex justify-between text-sm text-muted mt-1">
+                    <span>{edu.school}</span>
+                    <span>{edu.year}</span>
+                  </div>
+                  <p className="text-sm text-muted/80 mt-2">{edu.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 
@@ -181,7 +217,7 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               {/* Card Content */}
-              <div className="relative h-full p-6 bg-black/40 border border-white/10 rounded-xl backdrop-blur-md overflow-hidden hover:border-cyan-500/50 transition-all duration-300 flex flex-col items-center text-center">
+              <div className="relative h-full p-6 bg-card border border-border rounded-xl backdrop-blur-md overflow-hidden hover:border-cyan-500/50 transition-all duration-300 flex flex-col items-center text-center">
                 
                 {/* Top Right Corner Accent */}
                 <div className="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -190,18 +226,18 @@ export function About() {
                 </div>
 
                 {/* Icon Container */}
-                <div className={`mb-4 p-4 rounded-2xl bg-white/5 ${stat.color} ring-1 ring-white/10 group-hover:ring-cyan-500/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative`}>
+                <div className={`mb-4 p-4 rounded-2xl bg-muted/10 ${stat.color} ring-1 ring-border group-hover:ring-cyan-500/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 relative`}>
                   <div className="absolute inset-0 bg-current opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity" />
                   <stat.icon className="w-8 h-8" />
                 </div>
 
                 {/* Value */}
-                <h3 className="text-4xl font-bold text-white mb-2 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 transition-all">
+                <h3 className="text-4xl font-bold text-foreground mb-2 tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-400 group-hover:to-purple-400 transition-all">
                   {stat.value}
                 </h3>
 
                 {/* Label */}
-                <p className="text-xs font-mono text-gray-400 uppercase tracking-widest group-hover:text-cyan-200/70 transition-colors">
+                <p className="text-xs font-mono text-muted uppercase tracking-widest group-hover:text-cyan-500 transition-colors">
                   {stat.label}
                 </p>
                 

@@ -15,7 +15,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-[0_0_20px_rgba(0,240,255,0.3)] hover:shadow-[0_0_30px_rgba(0,240,255,0.5)] border border-transparent",
       outline:
         "bg-transparent border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 shadow-[0_0_10px_rgba(0,240,255,0.1)]",
-      ghost: "bg-transparent text-gray-400 hover:text-white hover:bg-white/5",
+      ghost: "bg-transparent text-muted hover:text-foreground hover:bg-muted/10",
     };
 
     const sizes = {

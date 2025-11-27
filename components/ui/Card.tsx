@@ -14,7 +14,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         className={cn(
           "glass rounded-2xl p-6 overflow-hidden relative group",
-          hoverEffect && "hover:bg-white/5 transition-colors duration-300",
+          hoverEffect && "hover:bg-muted/10 transition-colors duration-300",
           className
         )}
         {...props}

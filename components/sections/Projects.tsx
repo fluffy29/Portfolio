@@ -5,90 +5,81 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Code2 } from "lucide-react";
 import Image from "next/image";
 
-const projects = [
-  {
-    id: 1,
-    title: "E-Commerce Dashboard",
-    category: "Full-Stack",
-    image: "/project1.jpg", // Placeholder
-    description: "A comprehensive dashboard for managing products, orders, and analytics. Built with Next.js and Supabase.",
-    tech: ["Next.js", "TypeScript", "Supabase", "Recharts"],
-    demo: "#",
-    github: "#"
-  },
-  {
-    id: 2,
-    title: "AI Chat Interface",
-    category: "Frontend",
-    image: "/project2.jpg", // Placeholder
-    description: "A modern chat interface with streaming responses and markdown support. Uses OpenAI API.",
-    tech: ["React", "Tailwind", "Framer Motion", "OpenAI"],
-    demo: "#",
-    github: "#"
-  },
-  {
-    id: 3,
-    title: "Task Management API",
-    category: "Backend",
-    image: "/project3.jpg", // Placeholder
-    description: "A robust REST API for task management with authentication, rate limiting, and caching.",
-    tech: ["Node.js", "Express", "PostgreSQL", "Redis"],
-    demo: "#",
-    github: "#"
-  },
-  {
-    id: 4,
-    title: "Portfolio v1",
-    category: "Frontend",
-    image: "/project4.jpg", // Placeholder
-    description: "My first portfolio website built with HTML, CSS, and vanilla JavaScript.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    demo: "#",
-    github: "#"
-  }
-];
-
-const categories = ["All", "Frontend", "Backend", "Full-Stack"];
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  description: string;
+  tech: string[];
+  demo: string;
+  github: string;
+}
 
 export function Projects() {
-  const [activeCategory, setActiveCategory] = React.useState("All");
+  const [projects, setProjects] = React.useState<Project[]>([]);
+  const [filter, setFilter] = React.useState("All");
 
-  const filteredProjects = projects.filter(
-    (project) => activeCategory === "All" || project.category === activeCategory
-  );
+  React.useEffect(() => {
+    fetch("/projects.json")
+      .then((res) => res.json())
+      .then((data) => setProjects(data))
+      .catch((err) => console.error("Failed to load projects:", err));
+  }, []);
+
+  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+  const filteredProjects = filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-    <SectionWrapper id="projects" className="bg-black/20">
+    <SectionWrapper id="projects" className="py-20">
       <div className="space-y-12">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Featured <span className="text-cyan-400">Projects</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full mx-auto" />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-4"
+          >
+            <Code2 className="w-4 h-4" />
+            <span>Featured Work</span>
+          </motion.div>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold"
+          >
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-500">Projects</span>
+          </motion.h2>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-4">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeCategory === category
-                  ? "bg-cyan-500 text-white shadow-[0_0_15px_rgba(0,240,255,0.3)]"
-                  : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2">
+          {categories.map((cat, index) => (
+            <motion.button
+              key={cat}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              onClick={() => setFilter(cat)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                filter === cat
+                  ? "bg-foreground text-background"
+                  : "bg-card text-muted hover:bg-card/80 hover:text-foreground"
               }`}
             >
-              {category}
-            </button>
+              {cat}
+            </motion.button>
           ))}
         </div>
 
         {/* Projects Grid */}
-        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
@@ -99,42 +90,53 @@ export function Projects() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="h-full flex flex-col group hover:border-cyan-500/50 transition-colors">
-                  <div className="relative h-48 mb-6 rounded-lg overflow-hidden bg-gray-800">
-                    {/* Placeholder for image */}
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-600 bg-gray-900">
-                      <span className="text-sm">Project Preview</span>
+                <Card className="h-full flex flex-col group hover:border-purple-500/30 transition-colors overflow-hidden bg-card border-border">
+                  {/* Image Container */}
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10" />
+                    {/* Placeholder for Image - In real app use next/image */}
+                    <div className="w-full h-full bg-muted/20 group-hover:scale-110 transition-transform duration-500 flex items-center justify-center">
+                        <Code2 className="w-12 h-12 text-muted" />
                     </div>
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 backdrop-blur-sm">
-                      <Button size="sm" variant="primary" onClick={() => window.open(project.demo, "_blank")}>
-                        <ExternalLink className="w-4 h-4 mr-2" /> Demo
-                      </Button>
-                      <Button size="sm" variant="outline" onClick={() => window.open(project.github, "_blank")}>
-                        <Github className="w-4 h-4 mr-2" /> Code
-                      </Button>
-                    </div>
-                  </div>
-
-                  <div className="flex-1 space-y-4">
-                    <div className="flex justify-between items-start">
-                      <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <span className="text-xs font-medium text-cyan-400 bg-cyan-500/10 px-2 py-1 rounded">
+                    
+                    <div className="absolute bottom-4 left-4 z-20">
+                      <span className="px-2 py-1 rounded bg-purple-500/20 border border-purple-500/30 text-purple-300 text-xs font-medium">
                         {project.category}
                       </span>
                     </div>
-                    
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      {project.description}
-                    </p>
+                  </div>
 
-                    <div className="flex flex-wrap gap-2 pt-4 mt-auto">
+                  <div className="p-6 flex flex-col flex-grow space-y-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-purple-400 transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted text-sm mt-2 line-clamp-3">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mt-auto">
                       {project.tech.map((t) => (
-                        <span key={t} className="text-xs text-gray-500 border border-gray-800 px-2 py-1 rounded">
+                        <span key={t} className="text-xs text-muted bg-card px-2 py-1 rounded border border-border">
                           {t}
                         </span>
                       ))}
+                    </div>
+
+                    <div className="flex gap-3 pt-4 border-t border-border">
+                      <Button variant="outline" size="sm" className="flex-1">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
+                      <Button size="sm" className="flex-1">
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Demo
+                        </a>
+                      </Button>
                     </div>
                   </div>
                 </Card>

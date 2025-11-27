@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "title": "E-Commerce Dashboard",
+    "category": "Full-Stack",
+    "image": "/project1.jpg",
+    "description": "A comprehensive dashboard for managing products, orders, and analytics. Built with Next.js and Supabase.",
+    "tech": ["Next.js", "TypeScript", "Supabase", "Recharts"],
+    "demo": "#",
+    "github": "#"
+  },
+  {
+    "id": 2,
+    "title": "AI Chat Interface",
+    "category": "Frontend",
+    "image": "/project2.jpg",
+    "description": "A modern chat interface with streaming responses and markdown support. Uses OpenAI API.",
+    "tech": ["React", "Tailwind", "Framer Motion", "OpenAI"],
+    "demo": "#",
+    "github": "#"
+  },
+  {
+    "id": 3,
+    "title": "Task Management API",
+    "category": "Backend",
+    "image": "/project3.jpg",
+    "description": "A robust REST API for task management with authentication, rate limiting, and caching.",
+    "tech": ["Node.js", "Express", "PostgreSQL", "Redis"],
+    "demo": "#",
+    "github": "#"
+  },
+  {
+    "id": 4,
+    "title": "Portfolio v1",
+    "category": "Frontend",
+    "image": "/project4.jpg",
+    "description": "My first portfolio website built with HTML, CSS, and vanilla JavaScript.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "demo": "#",
+    "github": "#"
+  }
+]
