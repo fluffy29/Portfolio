@@ -75,7 +75,18 @@ export function Hero() {
               View Projects
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg">
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/French cv.pdf';
+                link.download = 'French cv.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
               Download Resume
               <Download className="ml-2 w-4 h-4" />
             </Button>
