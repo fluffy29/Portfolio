@@ -15,16 +15,10 @@ const stats = [
 
 const education = [
   {
-    degree: "Bachelor of Science in Computer Science",
-    school: "University of Technology",
-    year: "2020 - 2024",
-    description: "Focused on Software Engineering, Algorithms, and Web Technologies."
-  },
-  {
-    degree: "Full Stack Web Development Bootcamp",
-    school: "Tech Academy",
-    year: "2023",
-    description: "Intensive training in React, Node.js, and Modern Web Architecture."
+    degree: "Computer Science",
+    school: "EPITA School of Engineering",
+    year: "2023 – 2026",
+    description: "Specializing in Software Engineering and Computer Science fundamentals."
   }
 ];
 
@@ -153,13 +147,13 @@ export function About() {
           <div className="space-y-6 text-muted leading-relaxed relative">
             <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-500/50 to-transparent rounded-full" />
             <p className="text-lg text-foreground font-medium pl-4">
-              I don't just write code; I engineer digital experiences. Merging the precision of backend logic with the fluidity of modern frontend design, I build applications that feel alive.
+              I build clean, scalable, and user-focused web applications by combining solid backend engineering with modern frontend design. My focus is on creating fast, intuitive interfaces that solve real problems and feel effortless to use.
             </p>
             <p className="pl-4">
-              My journey wasn't just about learning syntax—it was about deconstructing the web to understand its core. From <span className="text-cyan-400">React</span> ecosystems to scalable <span className="text-purple-400">Node.js</span> architectures, I specialize in crafting high-performance interfaces that leave a lasting impact.
+              I’ve gained a strong understanding of the full web stack from <span className="text-cyan-400">React</span> ecosystems and component architecture to <span className="text-purple-400">Node.js</span>, APIs, and cloud deployment.
             </p>
             <p className="pl-4">
-              Currently, I'm pushing the boundaries of what's possible in the browser, exploring WebGL, advanced state management, and cloud-native solutions.
+              Right now, I’m expanding into advanced frontend performance, WebGL/3D interfaces, and cloud-native solutions to deliver even more dynamic and high impact digital experiences.
             </p>
           </div>
 

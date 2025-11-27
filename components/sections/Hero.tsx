@@ -61,7 +61,7 @@ export function Hero() {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted max-w-xl leading-relaxed"
             >
-              I’m a junior full-stack developer focused on building clean, efficient, and user-centered applications. I love solving problems and learning new technologies as I continue growing in the industry.
+              I’m a full-stack developer focused on building clean, efficient, and user-centered applications. I enjoy solving problems, learning new technologies, and continuously improving my skills to deliver better products.
             </motion.p>
           </div>
 

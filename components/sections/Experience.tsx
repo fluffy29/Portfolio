@@ -28,6 +28,43 @@ const experiences = [
       "Integrated payment gateways and CMS solutions for e-commerce clients."
     ],
     tech: ["React", "Node.js", "WordPress", "Stripe"]
+  },
+  {
+    role: "Social Media Marketing Intern",
+    company: "Meta",
+    date: "July 2021",
+    description: [
+      "Completed an internship at Meta (formerly Facebook).",
+      "Gained hands-on experience in digital marketing.",
+      "Conducted research for product improvement projects.",
+      "Strengthened understanding of user engagement strategies.",
+      "Deepened awareness of tech trends and industry requirements."
+    ],
+    tech: ["Digital Marketing", "User Research", "Social Media Strategy"]
+  },
+  {
+    role: "IRIS Sensor Drone Project",
+    company: "EPF Engineering School",
+    date: "May 2021",
+    description: [
+      "Integrated an IRIS camera into a drone.",
+      "Developed drone operation systems.",
+      "Improved technical refinement and engineering skills.",
+      "Showcased problem-solving and technical competency."
+    ],
+    tech: ["Drone Engineering", "Hardware Integration", "Systems Engineering"]
+  },
+  {
+    role: "Robotics Engineer",
+    company: "Vex Robotics Competition",
+    date: "March 11, 2017",
+    description: [
+      "Participated in the VEX robotics competition.",
+      "Designed, built, and programmed robots.",
+      "Showcased teamwork, problem-solving, and innovation.",
+      "Demonstrated dedication to STEM and hands-on engineering."
+    ],
+    tech: ["Robotics", "C++", "Engineering", "Teamwork"]
   }
 ];
 
