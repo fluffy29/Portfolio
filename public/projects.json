@@ -1,42 +1,42 @@
 [
   {
     "id": 1,
-    "title": "E-Commerce Dashboard",
+    "title": "Patent-filing-Website",
     "category": "Full-Stack",
     "image": "/project1.jpg",
     "description": "A comprehensive dashboard for managing products, orders, and analytics. Built with Next.js and Supabase.",
     "tech": ["Next.js", "TypeScript", "Supabase", "Recharts"],
-    "demo": "#",
-    "github": "#"
+    "demo": "https://patent-filling.vercel.app/",
+    "github": "https://github.com/fluffy29/patent_filling.git"
   },
   {
     "id": 2,
     "title": "AI Chat Interface",
-    "category": "Frontend",
+    "category": "Backend",
     "image": "/project2.jpg",
     "description": "A modern chat interface with streaming responses and markdown support. Uses OpenAI API.",
     "tech": ["React", "Tailwind", "Framer Motion", "OpenAI"],
     "demo": "#",
-    "github": "#"
+    "github": "https://github.com/fluffy29/Semester_4_project.git"
   },
   {
     "id": 3,
-    "title": "Task Management API",
+    "title": "Library Management API",
     "category": "Backend",
     "image": "/project3.jpg",
     "description": "A robust REST API for task management with authentication, rate limiting, and caching.",
     "tech": ["Node.js", "Express", "PostgreSQL", "Redis"],
     "demo": "#",
-    "github": "#"
+    "github": "https://github.com/fluffy29/Library_Management"
   },
   {
     "id": 4,
-    "title": "Portfolio v1",
+    "title": "Vent-and-Go",
     "category": "Frontend",
     "image": "/project4.jpg",
-    "description": "My first portfolio website built with HTML, CSS, and vanilla JavaScript.",
+    "description": "My first website built with HTML, CSS, and vanilla JavaScript.",
     "tech": ["HTML", "CSS", "JavaScript"],
-    "demo": "#",
-    "github": "#"
+    "demo": "https://vent-and-go.vercel.app/index.html",
+    "github": "https://github.com/fluffy29/Vent-and-go"
   }
 ]
